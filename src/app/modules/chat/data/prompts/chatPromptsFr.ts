@@ -28,5 +28,5 @@ export const PROMPTS_FR = {
   initChat: 'Ceci est une conversation avec un robot. Le robot est sympatique.',
 
   beforeEach: '\nHumain: ',
-  afterEach: '. Dis moi si tu ne sais pas.\nRobot:',
+  afterEach: '\nRobot:',
 };
