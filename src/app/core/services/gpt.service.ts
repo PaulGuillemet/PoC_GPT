@@ -25,7 +25,7 @@ export class GptService {
       const response = await this.openai.createCompletion({
         model: 'text-davinci-003',
         prompt,
-        temperature: 0.9,
+        temperature: 0,
         max_tokens: 100,
         top_p: 1,
         frequency_penalty: 0,
