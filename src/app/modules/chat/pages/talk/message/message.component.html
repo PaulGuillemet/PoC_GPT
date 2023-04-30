@@ -1,0 +1,4 @@
+<div class="message-inner" [ngClass]="message.origin == 'BOT' ? 'bot' : 'user'">
+  <div class="avatar"></div>
+  <div class="text">{{ message.text }}</div>
+</div>

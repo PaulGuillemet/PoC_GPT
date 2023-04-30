@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  background-color: #d7d0c9;
+  background-image: url("~src/assets/background.png");
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.chat-input-field {
+  width: calc(100vw - 4rem);
+  flex-grow: 1;
+  position: absolute;
+  bottom: 1rem;
+  margin-left: 2rem;
+  position: fixed;
+}
+
+.message-list {
+  padding: 2rem;
+  padding-bottom: 200px;
+  width: calc(100vw - 4rem);
+}
+
+:host ::ng-deep .mat-mdc-text-field-wrapper {
+  background: rgb(245, 245, 245);
+}
