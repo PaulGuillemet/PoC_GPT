@@ -8,7 +8,7 @@ import { GptService } from './gpt.service';
 export class ChatFrService {
   public prompt: string;
   constructor(public gptService: GptService) {
-    this.prompt = PROMPTS_FR.esnTeamTrivia_en + PROMPTS_FR.initChatEsn_en;
+    this.prompt = PROMPTS_FR.initChatEsn;
   }
 
   public async process(userMessage: string): Promise<string> {

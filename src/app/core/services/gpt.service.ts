@@ -1,41 +1,60 @@
 import { Injectable } from '@angular/core';
 import { KeyService } from './key.service';
 // Import chatgpt-api module
-import { Configuration, OpenAIApi } from 'openai';
+import OpenAI from 'openai';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GptService {
-  public configuration: Configuration;
-  public openai: OpenAIApi;
+  public openai: OpenAI;
   constructor(public keyService: KeyService) {
     this.keyService.keyInit$.subscribe((key) => {
       if (!!key) {
-        this.configuration = new Configuration({
+        this.openai = new OpenAI({
           apiKey: key,
+          dangerouslyAllowBrowser: true,
         });
-        this.openai = new OpenAIApi(this.configuration);
       }
     });
   }
 
   public async process(prompt: string): Promise<any> {
     try {
-      const response = await this.openai.createCompletion({
-        model: 'text-davinci-003',
-        prompt,
+      // const response = await this.openai.createCompletion({
+      //   model: 'gpt-3.5-turbo-0125',
+      //   prompt,
+      //   temperature: 0,
+      //   max_tokens: 100,
+      //   top_p: 1,
+      //   frequency_penalty: 0,
+      //   presence_penalty: 0,
+      // });
+
+      const response = this.openai.chat.completions.create({
+        model: 'gpt-3.5-turbo-0125',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are Marv, a chatbot that answers questions.',
+          },
+          {
+            role: 'user',
+            content: 'Bonjour.',
+          },
+        ],
         temperature: 0,
-        max_tokens: 100,
+        // max_tokens: 100,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0,
       });
-      console.log({
-        response: response.data,
-        tokens: response.data.usage?.total_tokens,
+      return new Promise((resolve) => {
+        response.then((resp) => {
+          console.log(resp);
+          resolve(resp.choices[0].message.content);
+        });
       });
-      return response.data.choices[0].text;
     } catch (err) {
       console.log(err);
       this.keyService.resetPassword();

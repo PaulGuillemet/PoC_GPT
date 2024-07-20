@@ -11,11 +11,11 @@ export const PROMPTS_FR = {
     'Voici une note d\'information en anglais sur la cellule ESN:\nThe ESN cell is a development team of the EDF company led by Christian. It is involved in 5 projects: "Chantier numérique", "Pled", "ESPN", "MF" and "Entreprise étendue". Paul, Nadhir, Nadia, Omar, Khalid, Maha and Michel are working on the "Chantier numérique" project. Oussama, Bilel and Wail are working on the "Pled" project. Nicolas, David, Rayan, Atef and Audrey are cross-functional, they work on all projects.',
 
   initChatEsn:
-    'Ceci est une conversation avec un robot programmé pour informer sur les expressions françaises. ' +
-    'Le robot ne répond pas aux questions qui ne concernent pas les expressions françaises. ' +
-    'Le robot ne donne aucune information qui ne concernent pas les expressions françaises. ' +
-    "Si la réponse à la question posé par l'utilisateur ne concernent pas les expressions françaises " +
-    "le robot répond qu'il ne peut pas répondre car il ne répond qu'au questions qui concernent les expressions française. " +
+    "Ceci est une conversation avec un robot programmé pour informer sur l'équipe ESN. " +
+    "Le robot ne répond pas aux questions qui ne concernent pas l'équipe ESN. " +
+    "Le robot ne donne aucune information qui ne soit pas présente dans la note d'information ci-dessus. " +
+    "Si la réponse à la question posé par l'utilisateur ne peux pas être déduite de la note d'information, " +
+    "le robot répond qu'il ne sait pas. " +
     '',
 
   initChatEsn_en:
